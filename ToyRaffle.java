@@ -1,5 +1,7 @@
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class ToyRaffle {
   public static void main(String[] args) {
@@ -23,7 +25,13 @@ public class ToyRaffle {
       toyQueue.offer(toy);      
     }
 
+    Queue <Toy> generalQueue = new LinkedList<>();
+    while (!toyQueue.isEmpty()) {
+      generalQueue.offer(toyQueue.poll());
+    }
+
     
+
 
   }
 }
