@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class ToyRaffle {
   public static void main(String[] args) {
-    String inpuString = "1 constuctor 2; 2 doll 2; 3 robot 6" ;
+    String inpuString = "1 constuctor 5;2 doll 3;3 robot 2" ;
     String[] toysArr = inpuString.split(";");
     int[] idToy = new int[toysArr.length]; 
     String[] nameToy = new String[toysArr.length];
