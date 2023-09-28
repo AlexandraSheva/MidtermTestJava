@@ -1,7 +1,11 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Random;
 
 public class ToyRaffle {
   public static void main(String[] args) {
@@ -30,8 +34,22 @@ public class ToyRaffle {
       generalQueue.offer(toyQueue.poll());
     }
 
-    
-
+    try (PrintWriter writer = new PrintWriter(new FileWriter("raffle.txt"))) {
+      Random random = new Random();
+      for (int i = 0; i < 10; i++) {
+        double randomNum = random.nextDouble()*10;
+        Toy toy = generalQueue.peek();
+        if(toy!=null && randomNum < toy.getWeight()) {
+          writer.println(generalQueue.poll().getName());
+        } else {
+          writer.println("constructor");
+        }
+        
+      }
+      
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
 
   }
 }
